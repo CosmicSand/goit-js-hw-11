@@ -18,7 +18,7 @@ function requestImages(event) {
     key: '41547319-253ef689baf3db6007ef0d5b5',
     q: `${searchTitles}`,
     orientation: 'horizontal',
-    // per_page: 9,
+    per_page: 9,
     image_type: 'photo',
     safesearch: true,
   });
