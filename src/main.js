@@ -50,21 +50,22 @@ function renderImages(imagesArray) {
   gallery.innerHTML = '';
 
   imagesArray.hits.map((el, i) => {
-    const originalURL = imagesArray.hits[i].largeImageURL;
-    const previewURL = imagesArray.hits[i].webformatURL;
-    const description = imagesArray.hits[i].tags;
-    const likes = imagesArray.hits[i].likes;
-    const views = imagesArray.hits[i].views;
-    const comments = imagesArray.hits[i].comments;
-    const downloads = imagesArray.hits[i].downloads;
+    const {
+      largeImageURL,
+      webformatURL,
+      tags,
+      likes,
+      views,
+      comments,
+      downloads,
+    } = imagesArray.hits[i];
 
     const galleryElements = `<li class="gallery-item"><div class='image-wrapper'>
-  <a class="gallery-link" href="${originalURL}">
+  <a class="gallery-link" href="${largeImageURL}">
     <img
       class="gallery-image"
-      src="${previewURL}"
-      data-source="${originalURL}"
-      alt="${description}"
+      src="${webformatURL}"
+      alt="${tags}"
       width="360"
       height="200"
     />
