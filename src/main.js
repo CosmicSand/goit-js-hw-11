@@ -6,6 +6,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const searchingForm = document.querySelector('.searching-form');
 const gallery = document.querySelector('.gallery');
+const container = document.querySelector('.container');
 
 searchingForm.addEventListener('submit', requestImages);
 
@@ -42,14 +43,14 @@ function requestImages(event) {
         throw new Error('Error fetching data');
       }
       renderImages(api);
+
+      removeLoading();
     })
     .catch(error => console.log(error));
-  // removeLoading();
 }
 
 function renderImages(imagesArray) {
   gallery.innerHTML = '';
-
   imagesArray.hits.map((el, i) => {
     const {
       largeImageURL,
@@ -104,7 +105,7 @@ function renderImages(imagesArray) {
 }
 
 function addLoading() {
-  gallery.insertAdjacentHTML('beforebegin', '<span class="loader"></span>');
+  container.insertAdjacentHTML('afterbegin', '<span class="loader"></span>');
 }
 function removeLoading() {
   const loader = document.querySelector('.loader');
