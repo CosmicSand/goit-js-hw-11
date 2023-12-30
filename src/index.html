@@ -22,20 +22,22 @@ https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <form class="searching-form">
-      <input
-        class="search-inp"
-        type="text"
-        name="searching"
-        placeholder="Search images.."
-        autocomplete="off"
-      />
-      <button class="search-btn" type="submit">Search</button>
-    </form>
+    <div class="wrapper">
+      <form class="searching-form">
+        <input
+          class="search-inp"
+          type="text"
+          name="searching"
+          placeholder="Search images.."
+          autocomplete="off"
+        />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
-    <div class="container">
-      <ul class="gallery"></ul>
+      <div class="container">
+        <ul class="gallery"></ul>
+      </div>
+      <script type="module" src="./main.js"></script>
     </div>
-    <script type="module" src="./main.js"></script>
   </body>
 </html>
