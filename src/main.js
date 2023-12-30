@@ -91,10 +91,9 @@ function renderImages(imagesArray) {
 </li>`;
     gallery.insertAdjacentHTML('beforeend', galleryElement);
   });
+  let lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+    className: 'lightbox-on',
+  });
 }
-
-let lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-  className: 'lightbox-on',
-});
