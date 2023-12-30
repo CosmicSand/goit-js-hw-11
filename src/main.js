@@ -64,7 +64,7 @@ function renderImages(imagesArray) {
       data-source="${originalURL}"
       alt="${description}"
       width="360"
-        height="200"
+      height="200"
     />
     </a>
     <div class="gallery-item-description">
@@ -93,7 +93,7 @@ function renderImages(imagesArray) {
   });
 }
 
-let lightbox = new SimpleLightbox('.image-wrapper a', {
+let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
   className: 'lightbox-on',
