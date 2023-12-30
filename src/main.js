@@ -47,7 +47,8 @@ function requestImages(event) {
 
 function renderImages(imagesArray) {
   const gallery = document.querySelector('.gallery');
-  const markup = imagesArray.hits.map((el, i) => {
+
+  imagesArray.hits.map((el, i) => {
     const originalURL = imagesArray.hits[i].largeImageURL;
     const previewURL = imagesArray.hits[i].webformatURL;
     const description = imagesArray.hits[i].tags;
