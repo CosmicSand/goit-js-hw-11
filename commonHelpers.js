@@ -30,5 +30,5 @@ import{i as u,S as f}from"./assets/vendor-46aac873.js";(function(){const i=docum
 </ul>
     </div>
     </div>
-</li>`;i.insertAdjacentHTML("beforeend",d)})}new f(".gallery a",{captionsData:"alt",captionDelay:250,className:"lightbox-on"});
+</li>`;i.insertAdjacentHTML("beforeend",d)}),new f(".gallery a",{captionsData:"alt",captionDelay:250,className:"lightbox-on"})}
 //# sourceMappingURL=commonHelpers.js.map
