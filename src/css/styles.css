@@ -56,7 +56,11 @@ input {
 button {
   cursor: pointer;
 }
-input + button {
+.searching-form {
+  width: fit-content;
+  margin: 0 auto;
+}
+.search-btn {
   border-radius: 8px;
   border: none;
   padding: 8px 16px;
@@ -67,19 +71,66 @@ input + button {
   letter-spacing: 0.04em;
   color: #989898;
   background-color: #cfcfcf;
-}
-
-.button-enabled {
   background-color: #4e75ff;
   color: #fff;
   transition: background-color 0.2s ease-in-out;
 }
-.button-enabled:hover,
-.button-enabled:focus {
+.search-btn:hover,
+.search-btn:focus {
   background-color: #6c8cff;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+.search-inp {
+  width: 270px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  padding-left: 16px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  outline: none;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+.container {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  padding: 50px 16px;
+}
+.gallery {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.image-wrapper {
+  width: fit-content;
+}
+
+.gallery-item {
+  width: calc((100% - 48px) / 3) px;
+}
+
+.gallery-item-description {
+  padding: 8px 16px;
+}
+.gallery-item-description-list {
+  display: flex;
+  justify-content: space-between;
+}
+.description {
+  font-weight: 600;
+}
+.description-list-item {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-align: center;
 }
