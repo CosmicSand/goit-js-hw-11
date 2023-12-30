@@ -5,21 +5,22 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const searchingForm = document.querySelector('.searching-form');
+const gallery = document.querySelector('.gallery');
 
 searchingForm.addEventListener('submit', requestImages);
 
 function requestImages(event) {
   event.preventDefault();
+  addLoading();
   const searchTitles = event.currentTarget.elements.searching.value;
   const searchingOptions = new URLSearchParams({
     key: '41547319-253ef689baf3db6007ef0d5b5',
     q: `${searchTitles}`,
     orientation: 'horizontal',
-    per_page: 9,
+    // per_page: 9,
     image_type: 'photo',
     safesearch: true,
   });
-
   fetch(`https://pixabay.com/api/?${searchingOptions}`)
     .then(response => {
       return response.json();
@@ -43,10 +44,10 @@ function requestImages(event) {
       renderImages(api);
     })
     .catch(error => console.log(error));
+  // removeLoading();
 }
 
 function renderImages(imagesArray) {
-  const gallery = document.querySelector('.gallery');
   gallery.innerHTML = '';
 
   imagesArray.hits.map((el, i) => {
@@ -100,4 +101,12 @@ function renderImages(imagesArray) {
     className: 'lightbox-on',
   });
   searchingForm.reset();
+}
+
+function addLoading() {
+  gallery.insertAdjacentHTML('beforebegin', '<span class="loader"></span>');
+}
+function removeLoading() {
+  const loader = document.querySelector('.loader');
+  loader.remove();
 }
