@@ -207,7 +207,7 @@ a {
 }
 .gallery-image {
   transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.2s ease-in-out;
+    box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .gallery-image:hover {
   transform: scale(1.05);
