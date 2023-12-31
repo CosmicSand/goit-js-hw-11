@@ -51,7 +51,7 @@ function requestImages(event) {
     .catch(error => console.log(error));
 }
 
-// =================== Функція для створення галереї ===================
+// =================== Функція створення галереї ===================
 
 function galleryCreation(imagesArray) {
   gallery.innerHTML = '';
@@ -99,13 +99,13 @@ function galleryCreation(imagesArray) {
   });
   searchingForm.reset();
 }
-// =================== Функція для додавання спінера ===================
+// =================== Функція додавання спінера ===================
 
 function addLoading() {
   container.insertAdjacentHTML('afterbegin', '<span class="loader"></span>');
 }
 
-// =================== Функція для видалення спінера ===================
+// =================== Функція видалення спінера ===================
 
 function removeLoading() {
   const loader = document.querySelector('.loader');
