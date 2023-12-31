@@ -29,5 +29,5 @@ import{i as d,S as p}from"./assets/vendor-46aac873.js";(function(){const s=docum
 </ul>
     </div>
     </div>
-</li>`).join("");let i=new p(".gallery a",{captionsData:"alt",captionDelay:250,className:"lightbox-on"});c.insertAdjacentHTML("beforeend",s),i.refresh(),a.reset()}function h(){f.insertAdjacentHTML("afterbegin",'<span class="loader"></span>')}function l(){document.querySelector(".loader").remove()}
+</li>`).join("");c.insertAdjacentHTML("beforeend",s),new p(".gallery a",{captionsData:"alt",captionDelay:250,className:"lightbox-on"}).refresh(),a.reset()}function h(){f.insertAdjacentHTML("afterbegin",'<span class="loader"></span>')}function l(){document.querySelector(".loader").remove()}
 //# sourceMappingURL=commonHelpers.js.map
