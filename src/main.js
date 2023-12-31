@@ -63,6 +63,7 @@ function requestImages(event) {
 
 function galleryCreation(imagesArray) {
   const markup = imagesArray
+    .toSorted((a, b) => b.likes - a.likes)
     .map(image => {
       return `<li class="gallery-item"><div class='image-wrapper'>
   <a class="gallery-link" href="${image.largeImageURL}">
