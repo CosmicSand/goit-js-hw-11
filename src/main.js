@@ -7,6 +7,11 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const searchingForm = document.querySelector('.searching-form');
 const gallery = document.querySelector('.gallery');
 const container = document.querySelector('.container');
+let lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  className: 'lightbox-on',
+});
 
 searchingForm.addEventListener('submit', requestImages);
 
@@ -94,11 +99,6 @@ function galleryCreation(imagesArray) {
     })
     .join('');
   gallery.insertAdjacentHTML('beforeend', markup);
-  let lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-    className: 'lightbox-on',
-  });
   lightbox.refresh();
   searchingForm.reset();
 }
