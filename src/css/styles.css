@@ -100,7 +100,17 @@ a {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
+  transition: border 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
+
+.search-inp:hover {
+  border: 1px solid #000;
+}
+
+.search-inp:focus {
+  border: 1px solid #4e75ff;
+}
+
 .loader {
   position: absolute;
   left: 50%;
