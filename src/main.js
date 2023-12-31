@@ -27,7 +27,8 @@ function requestImages(event) {
       return response.json();
     })
     .then(api => {
-      if (api.hits.length === 0) {
+      const imagesArray = api.hits;
+      if (imagesArray.length === 0) {
         izitoast.error({
           title: 'Error',
           message:
@@ -42,7 +43,7 @@ function requestImages(event) {
         });
         throw new Error('Error fetching data');
       }
-      renderImages(api);
+      renderImages(imagesArray);
 
       removeLoading();
     })
@@ -51,24 +52,14 @@ function requestImages(event) {
 
 function renderImages(imagesArray) {
   gallery.innerHTML = '';
-  const markup = imagesArray.hits
-    .map((el, i) => {
-      const {
-        largeImageURL,
-        webformatURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      } = imagesArray.hits[i];
-
+  const markup = imagesArray
+    .map(image => {
       return `<li class="gallery-item"><div class='image-wrapper'>
-  <a class="gallery-link" href="${largeImageURL}">
+  <a class="gallery-link" href="${image.largeImageURL}">
     <img
       class="gallery-image"
-      src="${webformatURL}"
-      alt="${tags}"
+      src="${image.webformatURL}"
+      alt="${image.tags}"
       width="360"
       height="200"
     />
@@ -77,19 +68,19 @@ function renderImages(imagesArray) {
 <ul class='gallery-item-description-list'>
 <li class='description-list-item'>
 <p class='description'>Likes</p>
-<p class='quantity'>${likes}</p>
+<p class='quantity'>${image.likes}</p>
 </li>
 <li class='description-list-item'>
 <p class='description'>Views</p>
-<p class='quantity'>${views}</p>
+<p class='quantity'>${image.views}</p>
 </li>
 <li class='description-list-item'>
 <p class='description'>Comments</p>
-<p class='quantity'>${comments}</p>
+<p class='quantity'>${image.comments}</p>
 </li>
 <li class='description-list-item'>
 <p class='description'>Downloads</p>
-<p class='quantity'>${downloads}</p>
+<p class='quantity'>${image.downloads}</p>
 </li>
 </ul>
     </div>
