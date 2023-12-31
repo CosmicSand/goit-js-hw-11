@@ -14,6 +14,7 @@ searchingForm.addEventListener('submit', requestImages);
 
 function requestImages(event) {
   event.preventDefault();
+  gallery.innerHTML = '';
   addLoading();
   const searchTitles = event.currentTarget.elements.searching.value;
   const searchingOptions = new URLSearchParams({
@@ -38,12 +39,12 @@ function requestImages(event) {
           iconUrl: `${errorIcon}`,
           backgroundColor: '#EF4040',
           titleColor: '#fff',
-          close: false,
           messageColor: '#fff',
           messageSize: '16px',
           progressBarColor: '#B5EA7C',
           position: 'topRight',
         });
+        removeLoading();
         throw new Error('Error fetching data');
       }
       galleryCreation(imagesArray);
@@ -55,7 +56,6 @@ function requestImages(event) {
 // =================== Функція створення галереї ===================
 
 function galleryCreation(imagesArray) {
-  gallery.innerHTML = '';
   const markup = imagesArray
     .map(image => {
       return `<li class="gallery-item"><div class='image-wrapper'>
