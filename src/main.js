@@ -51,18 +51,19 @@ function requestImages(event) {
 
 function renderImages(imagesArray) {
   gallery.innerHTML = '';
-  imagesArray.hits.map((el, i) => {
-    const {
-      largeImageURL,
-      webformatURL,
-      tags,
-      likes,
-      views,
-      comments,
-      downloads,
-    } = imagesArray.hits[i];
+  const markup = imagesArray.hits
+    .map((el, i) => {
+      const {
+        largeImageURL,
+        webformatURL,
+        tags,
+        likes,
+        views,
+        comments,
+        downloads,
+      } = imagesArray.hits[i];
 
-    const galleryElements = `<li class="gallery-item"><div class='image-wrapper'>
+      return `<li class="gallery-item"><div class='image-wrapper'>
   <a class="gallery-link" href="${largeImageURL}">
     <img
       class="gallery-image"
@@ -94,8 +95,9 @@ function renderImages(imagesArray) {
     </div>
     </div>
 </li>`;
-    gallery.insertAdjacentHTML('beforeend', galleryElements);
-  });
+    })
+    .join('');
+  gallery.insertAdjacentHTML('beforeend', markup);
   let lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250,
