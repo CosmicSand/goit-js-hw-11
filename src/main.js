@@ -31,13 +31,14 @@ function requestImages(event) {
     .then(api => {
       const imagesArray = api.hits;
       if (imagesArray.length === 0) {
+        searchingForm.reset();
         izitoast.error({
-          title: 'Error',
-          message:
-            'Sorry, there are no images matching your search query. Please try again!',
+          title: '',
+          message: `Sorry, there are no images matching <br> your search query. Please try again!`,
           iconUrl: `${errorIcon}`,
           backgroundColor: '#EF4040',
           titleColor: '#fff',
+          close: false,
           messageColor: '#fff',
           messageSize: '16px',
           progressBarColor: '#B5EA7C',
