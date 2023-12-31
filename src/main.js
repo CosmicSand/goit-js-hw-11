@@ -10,7 +10,7 @@ const container = document.querySelector('.container');
 
 searchingForm.addEventListener('submit', requestImages);
 
-// =================== Функція для запиту на сервер ===================
+// =================== Функція запиту на сервер ===================
 
 function requestImages(event) {
   event.preventDefault();
