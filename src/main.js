@@ -43,14 +43,15 @@ function requestImages(event) {
         });
         throw new Error('Error fetching data');
       }
-      renderImages(imagesArray);
-
+      galleryCreation(imagesArray);
       removeLoading();
     })
     .catch(error => console.log(error));
 }
 
-function renderImages(imagesArray) {
+// =================== Функція для створення галереї ===================
+
+function galleryCreation(imagesArray) {
   gallery.innerHTML = '';
   const markup = imagesArray
     .map(image => {
