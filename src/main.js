@@ -10,6 +10,8 @@ const container = document.querySelector('.container');
 
 searchingForm.addEventListener('submit', requestImages);
 
+// =================== Функція для запиту на сервер ===================
+
 function requestImages(event) {
   event.preventDefault();
   addLoading();
@@ -97,10 +99,14 @@ function galleryCreation(imagesArray) {
   });
   searchingForm.reset();
 }
+// =================== Функція для додавання спінера ===================
 
 function addLoading() {
   container.insertAdjacentHTML('afterbegin', '<span class="loader"></span>');
 }
+
+// =================== Функція для видалення спінера ===================
+
 function removeLoading() {
   const loader = document.querySelector('.loader');
   loader.remove();
