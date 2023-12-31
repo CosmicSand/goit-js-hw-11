@@ -40,6 +40,7 @@ function requestImages(event) {
           backgroundColor: '#EF4040',
           titleColor: '#fff',
           messageColor: '#fff',
+          theme: 'dark',
           messageSize: '16px',
           progressBarColor: '#B5EA7C',
           position: 'topRight',
