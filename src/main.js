@@ -93,12 +93,13 @@ function galleryCreation(imagesArray) {
 </li>`;
     })
     .join('');
-  gallery.insertAdjacentHTML('beforeend', markup);
   let lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250,
     className: 'lightbox-on',
   });
+  gallery.insertAdjacentHTML('beforeend', markup);
+  lightbox.refresh();
   searchingForm.reset();
 }
 // =================== Функція додавання спінера ===================
