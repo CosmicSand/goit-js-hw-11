@@ -21,10 +21,10 @@ function requestImages(event) {
   event.preventDefault();
   gallery.innerHTML = '';
   addLoading();
-  const searchTitles = event.currentTarget.elements.searching.value;
+  const searchTitle = event.currentTarget.elements.searching.value;
   const searchingOptions = new URLSearchParams({
     key: '41547319-253ef689baf3db6007ef0d5b5',
-    q: `${searchTitles}`,
+    q: `${searchTitle}`,
     orientation: 'horizontal',
     per_page: 9,
     image_type: 'photo',
