@@ -9,7 +9,6 @@ const gallery = document.querySelector('.gallery');
 const container = document.querySelector('.container');
 const errorOptions = {
   title: '',
-  // message: `Sorry, there are no images matching <br> your search query. Please try again!`,
   iconUrl: `${errorIcon}`,
   backgroundColor: '#EF4040',
   titleColor: '#fff',
@@ -51,9 +50,6 @@ function requestImages(event) {
     .then(api => {
       const imagesArray = api.hits;
       if (imagesArray.length === 0) {
-        searchingForm.reset();
-
-        removeLoading();
         throw new Error(
           `There are no images matching your search query. Please try again!`
         );
@@ -67,6 +63,7 @@ function requestImages(event) {
         errorOptions,
         (errorOptions.message = `Sorry! ${error.message}`)
       );
+      removeLoading();
     });
 }
 
@@ -125,4 +122,5 @@ function addLoading() {
 function removeLoading() {
   const loader = document.querySelector('.loader');
   loader.remove();
+  searchingForm.reset();
 }
