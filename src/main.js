@@ -34,6 +34,7 @@ function requestImages(event) {
   gallery.innerHTML = '';
   addLoading();
   const searchTitle = event.currentTarget.elements.searching.value.trim();
+  // ======= encodeURIComponent(searchTitle) гарантує, що символи будуть правильно закодовані для URL ===================
   const serchingRequest = encodeURIComponent(searchTitle);
   console.log(serchingRequest);
   const searchingOptions = new URLSearchParams({
@@ -110,7 +111,6 @@ function galleryCreation(imagesArray) {
     .join('');
   gallery.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
-  searchingForm.reset();
 }
 // =================== Функція додавання спінера, стилю search-btn-disabled, змінення стану кнопки на відключено ===================
 
