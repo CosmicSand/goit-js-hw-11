@@ -7,6 +7,18 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const searchingForm = document.querySelector('.searching-form');
 const gallery = document.querySelector('.gallery');
 const container = document.querySelector('.container');
+const errorOptions = {
+  title: '',
+  // message: `Sorry, there are no images matching <br> your search query. Please try again!`,
+  iconUrl: `${errorIcon}`,
+  backgroundColor: '#EF4040',
+  titleColor: '#fff',
+  messageColor: '#fff',
+  theme: 'dark',
+  messageSize: '16px',
+  progressBarColor: '#B5EA7C',
+  position: 'topRight',
+};
 let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
@@ -21,10 +33,12 @@ function requestImages(event) {
   event.preventDefault();
   gallery.innerHTML = '';
   addLoading();
-  const searchTitle = event.currentTarget.elements.searching.value;
+  const searchTitle = event.currentTarget.elements.searching.value.trim();
+  const serchingRequest = encodeURIComponent(searchTitle);
+  console.log(serchingRequest);
   const searchingOptions = new URLSearchParams({
     key: '41547319-253ef689baf3db6007ef0d5b5',
-    q: `${searchTitle}`,
+    q: `${serchingRequest}`,
     orientation: 'horizontal',
     per_page: 9,
     image_type: 'photo',
@@ -38,25 +52,22 @@ function requestImages(event) {
       const imagesArray = api.hits;
       if (imagesArray.length === 0) {
         searchingForm.reset();
-        izitoast.error({
-          title: '',
-          message: `Sorry, there are no images matching <br> your search query. Please try again!`,
-          iconUrl: `${errorIcon}`,
-          backgroundColor: '#EF4040',
-          titleColor: '#fff',
-          messageColor: '#fff',
-          theme: 'dark',
-          messageSize: '16px',
-          progressBarColor: '#B5EA7C',
-          position: 'topRight',
-        });
+
         removeLoading();
-        throw new Error('Error fetching data');
+        throw new Error(
+          `There are no images matching your search query. Please try again!`
+        );
       }
       galleryCreation(imagesArray);
       removeLoading();
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      console.log(error);
+      izitoast.error(
+        errorOptions,
+        (errorOptions.message = `Sorry! ${error.message}`)
+      );
+    });
 }
 
 // =================== Функція створення галереї ===================
