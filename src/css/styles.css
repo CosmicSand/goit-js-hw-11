@@ -70,12 +70,16 @@ button {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  color: #989898;
-  background-color: #cfcfcf;
   background-color: #4e75ff;
   color: #fff;
   transition: background-color 0.2s ease-in-out;
 }
+
+.search-btn.search-btn-disabled {
+  color: #989898;
+  background-color: #cfcfcf;
+}
+
 .search-btn:hover,
 .search-btn:focus {
   background-color: #6c8cff;

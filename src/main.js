@@ -5,6 +5,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const searchingForm = document.querySelector('.searching-form');
+const searchBtn = document.querySelector('.search-btn');
 const gallery = document.querySelector('.gallery');
 const container = document.querySelector('.container');
 const errorOptions = {
@@ -111,16 +112,20 @@ function galleryCreation(imagesArray) {
   lightbox.refresh();
   searchingForm.reset();
 }
-// =================== Функція додавання спінера ===================
+// =================== Функція додавання спінера, стилю search-btn-disabled, змінення стану кнопки на відключено ===================
 
 function addLoading() {
   container.insertAdjacentHTML('afterbegin', '<span class="loader"></span>');
+  searchBtn.disabled = true;
+  searchBtn.classList.add('search-btn-disabled');
 }
 
-// =================== Функція видалення спінера ===================
+// =================== Функція видалення спінера, стилю search-btn-disabled, змінення стану кнопки на включено, обнулення форми ===================
 
 function removeLoading() {
   const loader = document.querySelector('.loader');
   loader.remove();
+  searchBtn.disabled = false;
+  searchBtn.classList.remove('search-btn-disabled');
   searchingForm.reset();
 }
